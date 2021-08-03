@@ -13,17 +13,17 @@ const gateway = new ApolloGateway({
     {
       name: 'auth',
       url: `${process.env.AUTH_DOMAIN}${process.env.GRAPHQL_PATH}`,
-      // http://localhost:4000/graphql
+      // http://localhost:4001/graphql
     },
     {
       name: 'course',
       url: `${process.env.COURSE_DOMAIN}${process.env.GRAPHQL_PATH}`,
-      // http://localhost:4000/graphql
+      // http://localhost:4002/graphql
     },
     {
       name: 'student',
       url: `${process.env.STUDENT_DOMAIN}${process.env.GRAPHQL_PATH}`,
-      // http://localhost:4000/graphql
+      // http://localhost:4003/graphql
     },
   ],
   buildService({ name, url }) {

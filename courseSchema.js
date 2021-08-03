@@ -18,9 +18,11 @@ export const typeDefs = gql`
 `;
 
 const courses = {
-  1: { name: 'Intro to GraphQL', students: [1, 2, 3, 4, 5, 6] },
-  2: { name: 'GraphQL Overview', students: [3, 4, 6] },
-  3: { name: 'GraphQL Queries', students: [1, 2, 5, 7, 8] },
+  1: { name: 'Intro to GraphQL', students: [1, 2, 3, 4, 5, 6, 9] },
+  2: { name: 'GraphQL Overview', students: [3, 4, 6, 9, 10] },
+  3: { name: 'GraphQL Queries', students: [1, 2, 5, 7, 8,] },
+  4: { name: 'GraphQL Mutations', students: [6, 7, 8, 9, 10] },
+  5: { name: 'GraphQL Subscriptions', students: [1, 2, 4, 10] },
 };
 
 export const resolvers = {
