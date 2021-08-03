@@ -1,0 +1,10 @@
+{
+  "name": "student-courses-app",
+  "version": "1.0.0",
+  "description": "A simple student courses app built with apollo-federation architecture",
+  "main": "index.js",
+  "repository": "https://github.com/kharioki/student-courses-app",
+  "author": "kharioki",
+  "license": "MIT",
+  "private": false
+}
