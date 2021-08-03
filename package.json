@@ -7,6 +7,9 @@
   "author": "kharioki",
   "license": "MIT",
   "private": false,
+  "scripts": {
+    "start": "node -r esm auth.js & node -r esm student.js & node -r esm course.js & node -r esm gateway.js"
+  },
   "dependencies": {
     "@apollo/federation": "^0.27.1",
     "@apollo/gateway": "^0.35.1",
