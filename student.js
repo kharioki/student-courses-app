@@ -12,12 +12,15 @@ const app = express();
 app.use(cookieParser);
 app.use(authCheck());
 
-const apolloServer = new ApolloServer({
-  schema: buildFederatedSchema(typeDefs, resolvers),
-  context: ({ req, res }) => ({ req, res }),
-});
-
-apolloServer.applyMiddleware({ app, cors: false });
+async function startServer() {
+  const apolloServer = new ApolloServer({
+    schema: buildFederatedSchema(typeDefs, resolvers),
+    context: ({ req, res }) => ({ req, res }),
+  });
+  await apolloServer.start();
+  apolloServer.applyMiddleware({ app, cors: false });
+}
+startServer();
 
 app.listen(parseInt(process.env.STUDENT_PORT)); // 4003
 console.log(`Student server started on domain: ${process.env.STUDENT_DOMAIN}`); // http://localhost:4003

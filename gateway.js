@@ -31,14 +31,18 @@ const gateway = new ApolloGateway({
   },
 });
 
-const apolloServer = new ApolloServer({
-  gateway,
-  subscriptions: false, // subscriptions not supported in federation
-  context: ({ req }) => ({ req: req, res: req.res }),
-});
-
 const app = express();
-apolloServer.applyMiddleware({ app, cors: false });
+
+async function startServer() {
+  const apolloServer = new ApolloServer({
+    gateway,
+    subscriptions: false, // subscriptions not supported in federation
+    context: ({ req }) => ({ req: req, res: req.res }),
+  });
+  await apolloServer.start();
+  apolloServer.applyMiddleware({ app, cors: false });
+}
+startServer();
 
 app.listen(process.env.GATEWAY_PORT);
 console.log(`Gateway server listening on port ${process.env.GATEWAY_DOMAIN}`);
